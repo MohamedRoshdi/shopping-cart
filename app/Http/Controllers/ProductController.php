@@ -42,7 +42,7 @@ class ProductController extends Controller
             $cartItem->total = ($count * (float) $product->price);
             $cartItem->save();
         }
-        dd('success');
+        return redirect()->back()->with('success', 'Item added successfully.');
     }
     /**
      * Show the form for creating a new resource.

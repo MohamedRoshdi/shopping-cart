@@ -7,8 +7,7 @@
         <div class="card-header">
             <h1 class="text-center">Shopping Cart</h1>
         </div>
-
-        <div class="text-center m-2">
+       <div class="text-center m-2">
             @forelse($carts as $cart)
                 <a href="{{route('cart.index', $cart->id)}}" class="btn btn-primary m-auto">
                     Go to {{$cart->name .' (' .$cart->items->count() .')' }}
@@ -20,6 +19,7 @@
         <div class="row">
             <div class="col-12">
                 @include('partials.errors')
+                @include('partials.msg')
             </div>
             @forelse($products as $product)
                 <div class="col-4">
