@@ -8,17 +8,15 @@
             <h1 class="text-center">Shopping Cart</h1>
         </div>
 
-        <div>
+        <div class="text-center m-2">
             @forelse($carts as $cart)
-                <a href="{{route('cart.index', $cart->id)}}" class="btn btn-primary m-1">
-                    Go to {{$cart->name}}
-                    {{--                    ({{$cart->items->count()}})--}}
+                <a href="{{route('cart.index', $cart->id)}}" class="btn btn-primary m-auto">
+                    Go to {{$cart->name .' (' .$cart->items->count() .')' }}
                 </a>
             @empty
                 <div class="alert alert-warning">No Carts</div>
             @endforelse
         </div>
-        <div class="m-3"></div>
         <div class="row">
             <div class="col-12">
                 @include('partials.errors')
