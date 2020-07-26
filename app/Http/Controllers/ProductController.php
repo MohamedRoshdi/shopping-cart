@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
+use App\Models\Cart;
+use App\Models\CartItem;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -14,9 +16,34 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::with('productType')->get();
+        $carts = Cart::all();
+        return view('home', compact('products', 'carts'));
     }
 
+    public function addToCart($productId, $cartId)
+    {
+        $product = Product::findOrFail($productId);
+        $cart = Cart::findOrFail($cartId);
+        $cartItem = CartItem::where('cart_id', $cartId)
+                    ->where('product_id', $productId)->first();
+        if(!$cartItem){
+            CartItem::create([
+                'cart_id' => $cartId,
+                'product_id' => $productId,
+                'count' => 1,
+                'price' => $product->price,
+                'total' => $product->price
+            ]);
+        }else{
+            $count = ((int)$cartItem->count + 1);
+            $cartItem->count = $count;
+            $cartItem->price = $product->price;
+            $cartItem->total = ($count * (float) $product->price);
+            $cartItem->save();
+        }
+        dd('success');
+    }
     /**
      * Show the form for creating a new resource.
      *

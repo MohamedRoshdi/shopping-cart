@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Models\Cart;
 class CartSeeder extends Seeder
 {
     /**
@@ -11,10 +11,10 @@ class CartSeeder extends Seeder
      */
     public function run()
     {
-        \App\Cart::create([
+        Cart::create([
             'name'=> 'Order cart',
         ]);
-        \App\Cart::create([
+        Cart::create([
             'name'=> 'Wish-list cart',
         ]);
     }

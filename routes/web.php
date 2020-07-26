@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ProductController@index');
+Route::get('/cart/{id}', 'CartController@index')->name('cart.index');
+Route::get('/addToCart/{product_id}/{cart_id}', 'ProductController@addToCart')->name('addToCart');

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Models\ProductType;
 class ProductTypesSeeder extends Seeder
 {
     /**
@@ -11,10 +11,10 @@ class ProductTypesSeeder extends Seeder
      */
     public function run()
     {
-        \App\ProductType::create([
+        ProductType::create([
             'name'=> 'Normal item'
         ]);
-        \App\ProductType::create([
+        ProductType::create([
             'name'=> 'Sale item'
         ]);
     }

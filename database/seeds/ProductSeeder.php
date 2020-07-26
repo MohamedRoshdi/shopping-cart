@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Models\Product;
 class ProductSeeder extends Seeder
 {
     /**
@@ -11,23 +11,28 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        \App\Product::create([
+        Product::create([
             'name'=>'Laptop HP',
             'price'=>12000,
             'product_type_id'=>1,
-            'image'=>'hp.jpg',
+            'image'=>'images/hp.jpg',
         ]);
-        \App\Product::create([
+        Product::create([
             'name'=>'Laptop Dell',
             'price'=>15000,
             'product_type_id'=>2,
-            'image'=>'dell.jpg',
+            'image'=>'images/dell.jpg',
         ]);
-        \App\Product::create([
+        Product::create([
             'name'=>'Laptop MAC',
             'price'=>25000,
             'product_type_id'=>1,
-            'image'=>'mac.jpg',
+            'image'=>'images/mac.jpg',
+        ]);
+        Product::create([
+            'name'=>'Laptop',
+            'price'=>5000,
+            'product_type_id'=>1,
         ]);
     }
 }
