@@ -9,7 +9,7 @@
         </div>
        <div class="text-center m-2">
             @forelse($carts as $cart)
-                <a href="{{route('cart.index', $cart->id)}}" class="btn btn-primary m-auto">
+                <a href="{{route('cart.show', $cart->id)}}" class="btn btn-primary m-auto">
                     Go to {{$cart->name .' (' .$cart->items->count() .')' }}
                 </a>
             @empty
