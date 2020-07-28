@@ -5,30 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\CartItem;
 use Illuminate\Http\Request;
-use BaseCrudController;
 
 class CartController extends BaseCrudController
 {
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    protected function inputStore()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        // TODO: Implement inputStore() method.
     }
 
     /**
@@ -104,8 +87,4 @@ class CartController extends BaseCrudController
         return redirect()->back();
     }
 
-    protected function inputStore()
-    {
-        // TODO: Implement inputStore() method.
-    }
 }

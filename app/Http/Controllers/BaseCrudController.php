@@ -1,9 +1,8 @@
 <?php
-use App\Http\Controllers\Controller;
+namespace App\Http\Controllers;
 
 abstract class BaseCrudController extends Controller{
     protected $model;
-    protected $view;
 
     public function index(){
         return $this->model->paginate();
