@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\CartItem;
 use Illuminate\Http\Request;
+use BaseCrudController;
 
-class CartController extends Controller
+class CartController extends BaseCrudController
 {
 
     /**
@@ -101,5 +102,10 @@ class CartController extends Controller
         $item = CartItem::findOrFail($id);
         $item->delete();
         return redirect()->back();
+    }
+
+    protected function inputStore()
+    {
+        // TODO: Implement inputStore() method.
     }
 }
