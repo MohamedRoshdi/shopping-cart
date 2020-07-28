@@ -8,19 +8,26 @@
             <h1 class="text-center">Cart Details - {{$cart->name}}</h1>
         </div>
         <div class="m-3 text-center">
-            @if($cart->items->count())
-            <div class="form-group">
-                <a href="{{route('cart.edit', $cart->id)}}" class="btn btn-primary">Edit Cart</a>
-            </div>
-            @endif
-            <form method="POST" action="{{route('cart.empty', $cart->id)}}">
-                {{ csrf_field() }}
-                {{ method_field('DELETE') }}
-
-                <div class="form-group">
-                    <input type="submit" class="btn btn-danger empty-cart" value="Empty Cart">
+            <div class="row">
+                <div class="m-3">
+                    <a href="{{url('/')}}" class="btn btn-success">Home Page</a>
                 </div>
-            </form>
+                @if($cart->items->count())
+                    <div class="m-3">
+                        <a href="{{route('cart.edit', $cart->id)}}" class="btn btn-primary">Edit Cart</a>
+                    </div>
+                @endif
+                @if($cart->items->count())
+                    <form method="POST" action="{{route('cart.empty', $cart->id)}}">
+                        {{ csrf_field() }}
+                        {{ method_field('DELETE') }}
+
+                        <div class="m-3">
+                            <input type="submit" class="btn btn-danger empty-cart" value="Empty Cart">
+                        </div>
+                    </form>
+                @endif
+            </div>
         </div>
         <div>
             <table class="table ">

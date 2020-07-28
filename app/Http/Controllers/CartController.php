@@ -8,10 +8,17 @@ use Illuminate\Http\Request;
 
 class CartController extends BaseCrudController
 {
+    public function __construct(Cart $model)
+    {
+        $this->model = $model;
+    }
 
     protected function inputStore()
     {
         // TODO: Implement inputStore() method.
+        return request()->only([
+            'name'
+        ]);
     }
 
     /**
